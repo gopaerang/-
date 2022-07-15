@@ -1,0 +1,51 @@
+
+import pygame
+import random
+from pygame import *
+
+
+#######################################################################
+#기본 세팅
+
+
+screen_width = 1600
+screen_heith = 900
+screen = pygame.display.set_mode((screen_width, screen_heith), 0, 32)
+DISPLAY = (screen_width, screen_heith)
+HALF_WIDTH = int(screen_width / 2)
+HALF_HEIGHT = int(screen_heith / 2)
+
+playing = True
+
+
+pygame.display.set_caption("타워 디펜스")
+
+#########################################################################
+
+def gameoverScreen():
+    pygame.init()
+    
+    MOUSEBUTTONDOWN = False
+    while True:
+        screen.fill((0,0,0))
+
+
+        font = pygame.font.Font(None, 100)
+        Text = font.render("GAME OVER",True,(0,255,0))
+        screen.blit(Text,(HALF_WIDTH,HALF_HEIGHT))
+
+        pygame.display.flip()
+
+        for event in pygame.event.get():
+            if event.type==pygame.QUIT:
+                pygame.quit()
+                exit(0)
+            elif event.type==pygame.MOUSEBUTTONDOWN:
+                if event.type==pygame.MOUSEBUTTONDOWN:
+                    MOUSEBUTTONDOWN = True 
+                    #하고 게임을 종료시켜야 하는데 어케하지
+
+# pygame 종료
+    pygame.quit()
+
+gameoverScreen()
